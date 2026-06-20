@@ -21,6 +21,9 @@ export default function Layout() {
               Dashboard
             </NavLink>
           )}
+          <NavLink to="/pos" className="nav-link">
+            New Sale
+          </NavLink>
           <NavLink to="/products" className="nav-link">
             Products
           </NavLink>

@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Products from "./pages/Products";
 import Sales from "./pages/Sales";
+import NewSale from "./pages/NewSale";
 
 function App() {
   const { isAuthenticated, isAdmin } = useAuth();
@@ -41,6 +42,7 @@ function App() {
             </AdminRoute>
           }
         />
+        <Route path="/pos" element={<NewSale />} />
         <Route path="/products" element={<Products />} />
         <Route path="/sales" element={<Sales />} />
       </Route>
