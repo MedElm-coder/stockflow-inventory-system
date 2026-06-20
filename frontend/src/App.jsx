@@ -1,18 +1,53 @@
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import AdminRoute from "./components/AdminRoute";
+import Layout from "./components/Layout";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+import Products from "./pages/Products";
+import Sales from "./pages/Sales";
 
 function App() {
-  const { loading, isAuthenticated, user } = useAuth();
-
-  if (loading) return <p style={{ padding: 24 }}>Loading…</p>;
+  const { isAuthenticated, isAdmin } = useAuth();
 
   return (
-    <div style={{ padding: 24, fontFamily: "system-ui" }}>
-      <h1>StockFlow</h1>
-      <p>
-        Auth status:{" "}
-        {isAuthenticated ? `Logged in as ${user.name} (${user.role})` : "Not logged in"}
-      </p>
-    </div>
+    <Routes>
+      {/* Public */}
+      <Route
+        path="/login"
+        element={
+          isAuthenticated ? (
+            <Navigate to={isAdmin ? "/dashboard" : "/sales"} replace />
+          ) : (
+            <Login />
+          )
+        }
+      />
+
+      {/* Authenticated app (wrapped in Layout) */}
+      <Route
+        element={
+          <ProtectedRoute>
+            <Layout />
+          </ProtectedRoute>
+        }
+      >
+        <Route
+          path="/dashboard"
+          element={
+            <AdminRoute>
+              <Dashboard />
+            </AdminRoute>
+          }
+        />
+        <Route path="/products" element={<Products />} />
+        <Route path="/sales" element={<Sales />} />
+      </Route>
+
+      {/* Default redirect */}
+      <Route path="*" element={<Navigate to="/login" replace />} />
+    </Routes>
   );
 }
 
