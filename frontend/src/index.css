@@ -330,3 +330,41 @@ tbody tr:hover { background: var(--surface-2); }
 .receipt .r-ref { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 12px; }
 .receipt .r-line { display: flex; justify-content: space-between; padding: 3px 0; }
 .receipt .r-total { border-top: 1px solid var(--border); margin-top: 8px; padding-top: 8px; font-weight: 700; }
+
+
+/* ---------- Sale detail modal ---------- */
+.sale-detail .sd-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 4px;
+}
+.sale-detail .sd-ref { font-size: 1.05rem; font-weight: 700; }
+.sale-detail .sd-meta { color: var(--text-muted); font-size: 0.82rem; margin-bottom: 16px; }
+.sale-detail .sd-items { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+.sale-detail .sd-items th, .sale-detail .sd-items td {
+  padding: 8px 4px; font-size: 0.85rem; border-bottom: 1px solid var(--border); text-align: left;
+}
+.sale-detail .sd-items th { color: var(--text-muted); font-size: 0.74rem; text-transform: uppercase; }
+.sale-detail .sd-items td.num, .sale-detail .sd-items th.num { text-align: right; }
+.sale-detail .sd-summary { font-size: 0.9rem; }
+.sale-detail .sd-summary .sd-line { display: flex; justify-content: space-between; padding: 3px 0; }
+.sale-detail .sd-summary .sd-line.total { font-weight: 700; border-top: 1px solid var(--border); margin-top: 6px; padding-top: 8px; }
+.row-clickable { cursor: pointer; }
+
+/* Date inputs on dark theme */
+.toolbar input[type="date"] {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-family: inherit;
+}
+.toolbar input[type="date"]:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.toolbar input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
