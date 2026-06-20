@@ -135,3 +135,96 @@ a {
 .sidebar-user strong { color: var(--text); display: block; }
 .main { flex: 1; padding: 32px; overflow-y: auto; }
 .page-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
+
+/* ---------- Toolbar / filters ---------- */
+.toolbar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.toolbar input[type="text"],
+.toolbar select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: var(--text);
+  font-size: 0.88rem;
+  font-family: inherit;
+}
+.toolbar input[type="text"] { min-width: 220px; }
+.toolbar input:focus, .toolbar select:focus { outline: none; border-color: var(--accent); }
+.toolbar .spacer { margin-left: auto; }
+.checkbox-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.85rem; color: var(--text-muted); cursor: pointer;
+}
+
+/* ---------- Table ---------- */
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+table { width: 100%; border-collapse: collapse; }
+th, td {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 0.88rem;
+  border-bottom: 1px solid var(--border);
+}
+th { color: var(--text-muted); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: var(--surface-2); }
+.cell-actions { display: flex; gap: 8px; }
+.btn-xs { padding: 5px 10px; font-size: 0.78rem; border-radius: 6px; }
+.btn-danger { background: var(--danger-bg); color: var(--danger); }
+
+.badge {
+  display: inline-block; font-size: 0.72rem; font-weight: 600;
+  padding: 3px 9px; border-radius: 999px;
+}
+.badge-ok { background: #1c3a2e; color: var(--success); }
+.badge-low { background: #3b2f1a; color: #f5b95c; }
+.badge-out { background: var(--danger-bg); color: var(--danger); }
+
+.empty-row { text-align: center; color: var(--text-muted); padding: 32px 0; }
+
+/* ---------- Pagination ---------- */
+.pagination {
+  display: flex; gap: 8px; align-items: center; justify-content: flex-end;
+  margin-top: 16px; font-size: 0.85rem; color: var(--text-muted);
+}
+.pagination button {
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  border-radius: 6px; padding: 6px 12px; cursor: pointer; font-family: inherit;
+}
+.pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center; padding: 24px; z-index: 50;
+}
+.modal {
+  width: 100%; max-width: 480px; background: var(--surface);
+  border: 1px solid var(--border); border-radius: 14px; padding: 24px;
+  max-height: 90vh; overflow-y: auto;
+}
+.modal h2 { font-size: 1.2rem; margin-bottom: 18px; }
+.modal .field input, .modal .field select, .modal .field textarea {
+  width: 100%; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 12px; color: var(--text);
+  font-size: 0.9rem; font-family: inherit;
+}
+.modal .field textarea { resize: vertical; }
+.modal .field input:focus, .modal .field select:focus, .modal .field textarea:focus {
+  outline: none; border-color: var(--accent);
+}
+.field-row { display: flex; gap: 12px; }
+.field-row .field { flex: 1; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+.field-error { color: var(--danger); font-size: 0.78rem; margin-top: 4px; }
